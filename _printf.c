@@ -1,45 +1,53 @@
-#include <unistd.h>
-#include "main.h"
+#include <stdlib.h>
+#include <stdarg.h>
+#include "holberton.h"
 /**
- *_printf - takes in a string and prints different types of arguments for
- * an unspecified amount of arguments
- * @format: the initial string that tell us what is going to be printed
- * Return: the amount of times we write to stdout
+ * _printf - print anything
+ * @format: arguments
+ * Return: number of characters printed
  */
 int _printf(const char *format, ...)
 {
-int i, count;
+	va_list arguments;
+	const char *p;
+	int num = 0;
 
-int (*f)(va_list);
-
-va_list list;
-
-if (format == NULL)
-return (-1);
-
-va_start(list, format);
-i = count = 0;
-
-while (format[i] != '\0')
-{
-if (format[i] == '%')
-{
-if (format[i + 1] == '\0')
-return (-1);
-f = get_func(format[i + 1]);
-if (f == NULL)
-count += print_nan(format[i], format[i + 1]);
-else
-count += f(list);
-i++;
-}
-else
-{
-_putchar(format[i]);
-count++;
-}
-i++;
-}
-va_end(list);
-return (count);
+	if (format == NULL)
+		return (-1);
+	va_start(arguments, format);
+	for (p = format; *p; p++)
+	{
+		if (*p == '%' && *p + 1 == '%')
+		{
+			_putchar(*p), num++;
+			continue;
+		}
+		else if (*p == '%' && *p + 1 != '%')
+		{
+			switch (*++p)
+			{
+				case 's':
+					num += fun_string(arguments);
+					break;
+				case 'c':
+					num += fun_character(arguments);
+					break;
+				case '%':
+					_putchar('%'), num++;
+					break;
+				case '\0':
+					return (-1);
+				case 'i':
+				case 'd':
+					num += fun_integer(arguments);
+					break;
+				default:
+					_putchar('%'), _putchar(*p), num += 2;
+			}
+		}
+		else
+			_putchar(*p), num++;
+	}
+va_end(arguments);
+return (num);
 }
