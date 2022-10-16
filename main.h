@@ -1,36 +1,31 @@
-#ifndef MAIN_H
-#define MAIN_H
-
+#ifndef HOLBERTON_H
+#define HOLBERTON_H
 #include <stdarg.h>
-#include <stddef.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 /**
- * struct structprint - structure containing
- * @q: the location and method to translate data to characters.
- * @u: print function for specific type.
- *
- * Return: int
+ * struct ops - a structure containing a char to compare with format modifiers
+ * and then choose the right function when it matches
+ * @operation: the char we want to compare to
+ * @func: the address of the function we want to return if a char matches
  */
-typedef struct structprint
+typedef struct ops
 {
-	char *q;
-	int (*u)(char *format, va_list);
-} structype;
+char operation;
+int (*func)(va_list);
+}
+ops_f;
 
-int _putchar(char ch);
-int _puts(char *string);
-int printc(char *format, va_list);
-int printstr(char *format, va_list);
-int (*driver(char *format))(char *format, va_list);
-int _printf(char *format, ...);
-int printint(char *format, va_list pa);
-int integer(int number);
-int contadordigit(int number);
-int _abs(int number);
-int printpercent(char *format, va_list pa);
-int printhex(char *format, va_list);
-int printHEX(char *format, va_list);
-int printocta(char *format, va_list);
-int print_unsign(char *format, va_list);
-#endif
+int _printf(const char *format, ...);
+int _putchar(char c);
+int (*get_func(char ch))(va_list);
+int print_char(va_list list);
+int print_string(va_list list);
+int print_nan(char ch1, char ch2);
+int print_num(va_list list);
+
+
+
+
+#endif /*HOLBERTON_H*/
