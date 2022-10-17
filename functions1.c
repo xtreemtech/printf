@@ -115,7 +115,6 @@ int print_hexa_upper(va_list types, char buffer[],
 
 /************** PRINT HEXX NUM IN LOWER OR UPPER **************/
 /**
- * pronting hexa in detail-
  * print_hexa - Prints a hexadecimal number in lower or upper
  * @types: Lista of arguments
  * @map_to: Array of values to map the number to
