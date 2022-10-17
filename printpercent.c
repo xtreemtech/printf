@@ -3,6 +3,7 @@
 /**
  * printstr- print str.
  * @pa: gtgtg
+ * contador: number of string  to print
  * @format: format str.
  * Return: number str for print.
  */

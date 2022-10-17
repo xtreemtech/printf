@@ -39,7 +39,7 @@ int printhex(char *format, va_list pa)
  * printHEX - prints a hexadecimal
  * @format: format to print hexadecimal
  * @pa: va_list that contains the hexadecimal to print
- * Return: number of digits printed
+ * Return: number(digit to prit)
  */
 int printHEX(char *format, va_list pa)
 {

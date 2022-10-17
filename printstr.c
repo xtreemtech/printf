@@ -2,6 +2,7 @@
 
 /**
  * printstr- print str.
+ * contador: number of string to print
  * @pa: gtgtg
  * @format: format str.
  * Return: number str for print.
