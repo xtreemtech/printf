@@ -4,6 +4,7 @@
  * _putchar - print char with stdout
  * @ch: char to print
  * Return: Output.
+ * Return(0) at the end of program
  */
 int _putchar(char ch)
 {

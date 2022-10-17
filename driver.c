@@ -1,6 +1,7 @@
 #include "main.h"
 
 /**
+ * Function declaration and variables
  * driver - selector for type of fun.
  * @format: string.
  * Description: the function loops through the structs

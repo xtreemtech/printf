@@ -4,6 +4,7 @@
  * _printf - prints formatted data to stdout
  * @format: string that contains the format to print
  * Return: number of characters written
+ * Return (0) is allways successfully
  */
 int _printf(char *format, ...)
 {

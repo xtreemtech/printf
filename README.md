@@ -201,9 +201,9 @@ REPO: GitHub repository: printf
 All the above options work well together.
 REPO:
 GitHub repository: printf
-Authors
-Camilo Bayona Orduz - Initial work - cbayonao
-Cristiam Camilo Baquero - Initial work - camilooob
+Authors;
+Daniell
+Tajir Ramadhan
 Acknowledgments
 Follow the framework
 Hat tip to anyone whose code was used
